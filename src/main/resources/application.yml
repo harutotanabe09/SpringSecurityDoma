@@ -13,8 +13,8 @@ spring:
         password: docker
     # Migrationの設定
     flyway:
-      enabled: true
-      baseline-on-migrate: true
+      enabled: false
+      baseline-on-migrate: false
     thymeleaf:
       cache: true
       # HTML5モードが非推奨になったのでHTMLモードにする
