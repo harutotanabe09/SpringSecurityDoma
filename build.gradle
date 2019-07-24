@@ -4,12 +4,12 @@ plugins {
 	id "com.diffplug.gradle.spotless" version "3.23.0"
 }
 
+// コード整形
 spotless {
     java {
         googleJavaFormat('1.6')
     }
 }
-
 
 task copyDomaResources(type: Sync)  {
     from sourceSets.main.resources.srcDirs
@@ -49,14 +49,11 @@ repositories {
 }
 
 dependencies {
+    // Spring
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.flywaydb:flyway-core'
-	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 
@@ -65,4 +62,11 @@ dependencies {
 	implementation 'org.seasar.doma:doma:2.24.0'
 	compile group: 'org.seasar.doma.boot', name: 'doma-spring-boot-starter', version: '1.1.1'
 
+    // Tools
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+    // Library
+	implementation 'org.flywaydb:flyway-core'
+	runtimeOnly 'org.postgresql:postgresql'
 }

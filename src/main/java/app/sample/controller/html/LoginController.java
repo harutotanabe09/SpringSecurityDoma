@@ -11,6 +11,6 @@ public class LoginController {
 
   @RequestMapping(LOGIN_FORM_URL)
   String loginForm() {
-    return "module/loginForm";
+    return "login/login";
   }
 }

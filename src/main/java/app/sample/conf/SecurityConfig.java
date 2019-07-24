@@ -20,11 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
-	    .antMatchers("/css/**").permitAll()
-	    .antMatchers("/fonts/**").permitAll()
-	    .antMatchers("/js/**").permitAll()
-	    .antMatchers("/loginForm").permitAll()
-        //.antMatchers(permittedUrls).permitAll()
+        .antMatchers(permittedUrls)
+        .permitAll()
         // 認証していないリクエストは不許可
         .anyRequest()
         .authenticated();
@@ -33,7 +30,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 認証パス
         .loginProcessingUrl(LOGIN_URL)
         // ログインフォーム表示用のパス設定
-        .loginPage(LOGIN_FORM_URL)
+        .loginPage(LOGIN_FORM_URL) //
+        .permitAll()
         // 認証失敗時のパス
         .failureUrl(LOGIN_FORM_URL + "?error")
         // 認証成功時のパス

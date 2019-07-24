@@ -23,8 +23,7 @@ spring:
       # 静的コンテンツをキャッシュする
       cache:
         period: 604800
-
-
+    
 # Doma2
 doma:
     # 方言の設定
@@ -36,4 +35,4 @@ management:
     endpoints:
        web:
           exposure:
-            include: info,health,prometheus
+            inc lude: info,health,prometheus
